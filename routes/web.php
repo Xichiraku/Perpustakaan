@@ -13,3 +13,6 @@ Route::get('/', function () {
 
 Route::get('/dashboard/user', [DashboardUserController::class, 'index']);
 Route::get('/dashboard/{nama}', [DashboardController::class, 'tampilkan']);
+
+Route::view('/data-siswa', 'data_siswa');
+Route::view('/daftar-user', 'daftar_user');
