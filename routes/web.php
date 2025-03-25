@@ -22,3 +22,6 @@ Route::view('/koleksi', 'koleksi');
 
 Route::view('/buku', 'daftar_buku');
 Route::view('/peminjam', 'Data_peminjaman');
+
+Route::view('/buku', 'daftar_buku');
+Route::view('/dashboard', 'dashboard_admin');
