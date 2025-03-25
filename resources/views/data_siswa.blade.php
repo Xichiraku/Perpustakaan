@@ -9,12 +9,14 @@ if (empty($_SESSION['role'])) {
     exit();
 }
 ?>
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PUSTAKALAYA</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link rel="shortcut icon" type="image/png" href="../image/login.png">
 
     <!-- CSS Libraries -->
@@ -23,51 +25,41 @@ if (empty($_SESSION['role'])) {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         body {
-            display: flex;
-            flex-wrap: wrap;
+            @apply flex flex-wrap;
         }
 
         /* Card area for main content */
         .content {
-            margin-left: 200px;
-            margin-top: 70px;
-            padding: 20px;
-            flex: 1;
-            transition: margin-left 0.3s ease;
+            @apply flex-1 transition-[margin-left] duration-[0.3s] ease-[ease] ml-[200px] mt-[70px] p-5;
         }
 
         /* Responsive Table */
-        @media (max-width: 768px) {
+        @media (max-wid_userth: 768px) {
             .content {
-                margin-left: 0;
-                margin-top: 50px;
+                @apply ml-0 mt-[50px];
             }
 
             .table-responsive {
-                font-size: 0.9rem;
+                @apply text-[0.9rem];
             }
 
             .action-buttons {
-                display: flex;
-                flex-direction: column;
-                gap: 5px;
+                @apply flex flex-col gap-[5px];
             }
 
             .action-buttons .btn {
-                margin-bottom: 3px;
+                @apply mb-[3px];
             }
         }
 
         /* Action Buttons Styling */
         .action-buttons {
-            display: flex;
-            gap: 5px;
-            justify-content: center;
+            @apply flex gap-[5px] justify-center;
         }
 
         /* Hover Effects */
         .table-hover tbody tr:hover {
-            background-color: rgba(0, 0, 0, 0.075);
+            @apply bg-[rgba(0, 0, 0, 0.075)];
         }
     </style>
 </head>
@@ -105,37 +97,31 @@ if (empty($_SESSION['role'])) {
                     </thead>
                     <tbody>
                         <?php
-                        include '../koneksi.php';
-                        $query = mysqli_query($koneksi, "SELECT * FROM siswa");
-                        $no = 1;
-                        while ($data = mysqli_fetch_assoc($query)) {
+include '../koneksi.php';
+$query = mysqli_query($koneksi, "SELECT * FROM siswa");
+$no = 1;
+while ($data = mysqli_fetch_assoc($query)) {
                         ?>
-                            <tr>
-                                <td data-label="NO"><?= $no++ ?></td>
-                                <td data-label="NIS"><?= $data['nis'] ?></td>
-                                <td data-label="NAMA SISWA"><?= $data['nama'] ?></td>
-                                <td data-label="KELAMIN"><?= $data['kelamin'] ?></td>
-                                <td data-label="KELAS"><?= $data['kelas'] ?></td>
-                                <td data-label="NO HP"><?= $data['nohp'] ?></td>
-                                <td data-label="AKSI" class="action-buttons">
-                                    <button class="btn btn-success btn-sm edit-button"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#editDataModal"
-                                        data-nis="<?= $data['nis'] ?>"
-                                        data-nama="<?= $data['nama'] ?>"
-                                        data-kelamin="<?= $data['kelamin'] ?>"
-                                        data-kelas="<?= $data['kelas'] ?>"
-                                        data-nohp="<?= $data['nohp'] ?>">
-                                        <i class="fas fa-edit"></i> Edit
-                                    </button>
-                                    <button class="btn btn-danger btn-sm"
-                                        data-bs-toggle="modal"
-                                        data-bs-target="#deleteModal"
-                                        data-id="<?= $data['nis'] ?>">
-                                        <i class="fas fa-trash-alt"></i> Hapus
-                                    </button>
-                                </td>
-                            </tr>
+                        <tr>
+                            <td data-label="NO"><?= $no++ ?></td>
+                            <td data-label="NIS"><?= $data['nis'] ?></td>
+                            <td data-label="NAMA SISWA"><?= $data['nama'] ?></td>
+                            <td data-label="KELAMIN"><?= $data['kelamin'] ?></td>
+                            <td data-label="KELAS"><?= $data['kelas'] ?></td>
+                            <td data-label="NO HP"><?= $data['nohp'] ?></td>
+                            <td data-label="AKSI" class="action-buttons">
+                                <button class="btn btn-success btn-sm edit-button" data-bs-toggle="modal"
+                                    data-bs-target="#editDataModal" data-nis="<?= $data['nis'] ?>"
+                                    data-nama="<?= $data['nama'] ?>" data-kelamin="<?= $data['kelamin'] ?>"
+                                    data-kelas="<?= $data['kelas'] ?>" data-nohp="<?= $data['nohp'] ?>">
+                                    <i class="fas fa-edit"></i> Edit
+                                </button>
+                                <button class="btn btn-danger btn-sm" data-bs-toggle="modal"
+                                    data-bs-target="#deleteModal" data-id="<?= $data['nis'] ?>">
+                                    <i class="fas fa-trash-alt"></i> Hapus
+                                </button>
+                            </td>
+                        </tr>
                         <?php } ?>
                     </tbody>
                 </table>
@@ -146,4 +132,5 @@ if (empty($_SESSION['role'])) {
     <!-- JavaScript Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/8.0.0/mdb.umd.min.js"></script>
 </body>
+
 </html>
