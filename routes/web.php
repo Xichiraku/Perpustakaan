@@ -19,3 +19,6 @@ Route::view('/daftar-user', 'daftar_user');
 
 Route::view('/dashboard-siswa', 'dashboard_siswa');
 Route::view('/koleksi', 'koleksi');
+
+Route::view('/buku', 'daftar_buku');
+Route::view('/peminjam', 'Data_peminjaman');
