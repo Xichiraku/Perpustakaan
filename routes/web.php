@@ -16,3 +16,6 @@ Route::get('/dashboard/{nama}', [DashboardController::class, 'tampilkan']);
 
 Route::view('/data-siswa', 'data_siswa');
 Route::view('/daftar-user', 'daftar_user');
+
+Route::view('/dashboard-siswa', 'dashboard_siswa');
+Route::view('/koleksi', 'koleksi');
