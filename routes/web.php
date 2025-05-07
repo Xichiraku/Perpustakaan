@@ -15,4 +15,6 @@ Route::get('/berandasiswa', [BerandaSiswaController::class, 'index'])->name('ber
 
 Route::get('/datasiswa', [DataSiswaController::class, 'index'])->name('datasiswa');
 Route::get('/databuku', [DataBukuController::class, 'index'])->name('databuku');
-
+Route::get('/datapeminjaman', [DataPeminjamanController::class, 'index'])->name('datapeminjaman');
+oute::get('/riwayataktivitas', [RiwayatAktivitasController::class, 'index'])->name('riwayataktivitas');
+Route::get('/riwayatpeminjaman', [RiwayatPeminjamanController::class, 'index'])->name('riwayatpeminjaman');
